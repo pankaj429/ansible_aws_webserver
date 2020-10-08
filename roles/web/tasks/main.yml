@@ -1,0 +1,29 @@
+---
+# tasks file for webserver
+- name: installing httpd package
+  package: 
+     name: "httpd"
+     state: present
+     #  register: package_installed
+
+     #- debug:
+     #var: package_installed
+
+- name: Copying Web Page from github
+  get_url:
+     dest: "{{ dc_dir }}"
+     url: "https://raw.githubusercontent.com/ishajain140/devopsal3/master/index.html"
+     #mode: "0600"
+    
+  #- name: Disabling SELINUX
+  #selinux:
+  #  state: disabled
+  ##become: true
+  #become_user: root
+  #become_method: sudo
+
+- name: starting web services
+  service: 
+     name: "httpd"
+     state: started
+ 

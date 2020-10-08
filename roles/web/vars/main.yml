@@ -1,0 +1,4 @@
+---
+# vars file for webserver
+dc_dir: "/var/www/html"
+httpport: 80

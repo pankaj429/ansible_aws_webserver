@@ -1,0 +1,6 @@
+---
+# vars file for ansi2
+image: "ami-0ebc1ac48dfd14136"
+instance_type: "t2.micro"
+region: "ap-south-1"
+

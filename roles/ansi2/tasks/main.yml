@@ -1,0 +1,20 @@
+---
+# tasks file for ansi2
+- name: provisioning os in aws
+  ec2: 
+    key_name: "ansiblekey"
+    instance_type: "{{instance_type}}"
+    image: "{{image}}"
+    wait: yes
+    count: 1
+    vpc_subnet_id: "subnet-dccaf0b4"
+    assign_public_ip: yes
+    region: "{{region}}" 
+    state: present
+    group_id: "sg-062fed696d3f02fed"
+    aws_access_key: "{{myaccess}}"
+    aws_secret_key: "{{mysecret}}"
+    instance_tags:
+      Name: ansibleweb
+
+  register: ec2
